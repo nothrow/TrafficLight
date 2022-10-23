@@ -1,0 +1,23 @@
+{
+  "name": "TrafficLight",
+  "version": "1.0.0",
+  "description": "A library with state machine for traffic lights",
+  "keywords": "traffic, lights, led",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/nothrow/trafficlight.git"
+  },
+  "authors":
+  [
+    {
+      "name": "Vita Tauer",
+      "email": "t@uer.cz",
+      "maintainer": true
+    }
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/nothrow/trafficlight/",
+  "frameworks": "*",
+  "platforms": "*"
+}
