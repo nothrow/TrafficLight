@@ -1,6 +1,6 @@
 {
   "name": "TrafficLight",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A library with state machine for traffic lights",
   "keywords": "traffic, lights, led",
   "repository":

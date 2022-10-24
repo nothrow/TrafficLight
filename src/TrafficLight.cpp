@@ -85,7 +85,7 @@ static uint8_t stateMachine(uint8_t state)
 
 void TrafficLightStateMachine::update()
 {
-  auto now = millis();
+  auto now = getTime();
   if (now - lastchange_ > interval_)
   {
     state_ = stateMachine(state_);
