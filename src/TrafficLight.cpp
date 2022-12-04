@@ -51,7 +51,7 @@ void TrafficLightStateMachine::green()
 
 bool TrafficLightStateMachine::isStable() const 
 {
-  switch(state) 
+  switch(state_) 
   {
     case DISABLED_0:
     case DISABLED_1:
@@ -66,15 +66,14 @@ bool TrafficLightStateMachine::isStable() const
     case GREENTORED_1:
     case GREENTORED_2:
       return false;
-
-    default:
-      return false;
   }
+
+  return false;
 }
 
 bool TrafficLightStateMachine::isTransition() const 
 {
-  switch(state) 
+  switch(state_) 
   {
     case DISABLED_0:
     case DISABLED_1:
@@ -89,10 +88,8 @@ bool TrafficLightStateMachine::isTransition() const
     case GREENTORED_1:
     case GREENTORED_2:
       return true;
-
-    default:
-      return false;
   }
+  return false;
 }
 
 void TrafficLightStateMachine::red()
