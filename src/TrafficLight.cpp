@@ -40,11 +40,58 @@ void TrafficLightStateMachine::setInterval(uint16_t interval_millis)
   interval_ = interval_millis;
 }
 
-void TrafficLightStateMachine::green() {
+void TrafficLightStateMachine::green() 
+{
   if (!WILLBEGREEN(state_))
   {
     state_ = REDTOGREEN_0;
     lastchange_ = 0;
+  }
+}
+
+bool TrafficLightStateMachine::isStable() const 
+{
+  switch(state) 
+  {
+    case DISABLED_0:
+    case DISABLED_1:
+    case REDSTABLE:
+    case GREENSTABLE:
+      return true;
+
+    case REDTOGREEN_0:
+    case REDTOGREEN_1:
+    case REDTOGREEN_2:
+    case GREENTORED_0:
+    case GREENTORED_1:
+    case GREENTORED_2:
+      return false;
+
+    default:
+      return false;
+  }
+}
+
+bool TrafficLightStateMachine::isTransition() const 
+{
+  switch(state) 
+  {
+    case DISABLED_0:
+    case DISABLED_1:
+    case REDSTABLE:
+    case GREENSTABLE:
+      return false;
+
+    case REDTOGREEN_0:
+    case REDTOGREEN_1:
+    case REDTOGREEN_2:
+    case GREENTORED_0:
+    case GREENTORED_1:
+    case GREENTORED_2:
+      return true;
+
+    default:
+      return false;
   }
 }
 
@@ -56,6 +103,7 @@ void TrafficLightStateMachine::red()
     lastchange_ = 0;
   }
 }
+
 void TrafficLightStateMachine::disable()
 {
   if (!WILLBEDISABLED(state_))

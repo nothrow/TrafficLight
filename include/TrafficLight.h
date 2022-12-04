@@ -35,6 +35,16 @@ struct TrafficLightStateMachine
   */
   void disable();
 
+/*!
+  @brief Returns true, if the light is in "stable" state (red/green/blinking)
+  */
+  bool isStable() const;
+
+/*!
+  @brief Returns true, if the light is in "transition" state
+  */
+  bool isTransition() const;
+
 protected:
 /*!
   @brief Writes state to pins
